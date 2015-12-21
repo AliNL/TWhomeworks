@@ -12,10 +12,12 @@
   <body ng-controller="mainController">
     <form class="select" action="index.html" method="post">
       <select class="publisher">
-        <option ng-repeat="book in books" value="{{book.publisher}}">{{book.publisher}}</option>
+        <option value="all" selected="selected">全部</option>
+        <option ng-repeat="publisher in publishers" value="{{publisher}}">{{publisher}}</option>
       </select>
       <select class="tag">
-        <option ng-repeat="tag in books.tags" value="{{tag.name}}">{{tag.name}}</option>
+        <option value="all" selected="selected">全部</option>
+        <option ng-repeat="tag in booktags" value="{{tag.name}}">{{tag.name}}</option>
       </select>
     </form>
     <div class="book-list">
