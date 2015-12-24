@@ -10,28 +10,26 @@
     <link rel="stylesheet" href="css/app.css" media="screen" title="no title" charset="utf-8">
   </head>
   <body ng-controller="mainController">
-    <form class="select" action="index.html" method="post">
-      <select class="publisher">
-        <option value="all" selected="selected">全部</option>
-        <option ng-repeat="publisher in publishers" value="{{publisher}}">{{publisher}}</option>
-      </select>
-      <select class="tag">
-        <option value="all" selected="selected">全部</option>
-        <option ng-repeat="tag in booktags" value="{{tag.name}}">{{tag.name}}</option>
-      </select>
-    </form>
+    <select ng-model="publisher" ng-options="publisher for publisher in publishers" ng-change="change()">
+      <option value="">全部</option>
+    </select>
+    <select ng-model="booktag" ng-options="booktag.name as booktag.name for booktag in booktags" ng-change="change()">
+      <option value="">全部</option>
+    </select>
+
     <div class="book-list">
-      <div class="book" ng-repeat="book in books">
+      <div class="book" ng-repeat="book in booksFiltered">
           <div class="book-img-part">
             <img src="{{book.images.small}}" alt="{{book.title}}" />
           </div>
           <div class="book-description-part">
             <h3>{{book.title}}</h3>
-            <p class="authors"><span class="author" ng-repeat="author in book.author">{{author}}</span></p>
+            <p class="authors"><span class="author" ng-repeat="author in book.author">{{author}} </span></p>
             <p class="price"><span>{{book.price}}</span>起</p>
             <p class="tags"><span class=tag ng-repeat="tag in book.tags">{{tag.name}} </span></p>
           </div>
       </div>
     </div>
+
   </body>
 </html>
