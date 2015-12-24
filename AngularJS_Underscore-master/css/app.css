@@ -1,0 +1,27 @@
+header {
+  width: 600px;
+  margin: 0 auto;
+}
+
+.book-list {
+  width: 700px;
+  margin: 50px auto;
+}
+
+.book {
+  position: relative;
+  height: 200px;
+  border-bottom: solid 1px gray;
+}
+
+.book-img-part {
+  position: absolute;
+  left: 0;
+  top: 40px;
+}
+
+.book-description-part {
+  position: absolute;
+  left: 120px;
+  top: 20px;
+}

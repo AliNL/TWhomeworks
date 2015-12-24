@@ -10,13 +10,14 @@
     <link rel="stylesheet" href="css/app.css" media="screen" title="no title" charset="utf-8">
   </head>
   <body ng-controller="mainController">
-    <select ng-model="publisher" ng-options="publisher for publisher in publishers" ng-change="change()">
-      <option value="">全部</option>
-    </select>
-    <select ng-model="booktag" ng-options="booktag.name as booktag.name for booktag in booktags" ng-change="change()">
-      <option value="">全部</option>
-    </select>
-
+    <header>
+      <select ng-model="publisher" ng-options="publisher for publisher in publishers" ng-change="change()">
+        <option value="">全部</option>
+      </select>
+      <select ng-model="booktag" ng-options="booktag.name as booktag.name for booktag in booktags" ng-change="change()">
+        <option value="">全部</option>
+      </select>
+    </header>
     <div class="book-list">
       <div class="book" ng-repeat="book in booksFiltered">
           <div class="book-img-part">
