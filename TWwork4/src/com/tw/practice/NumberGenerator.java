@@ -1,25 +1,16 @@
 package com.tw.practice;
 
+import java.util.Arrays;
 import java.util.Collections;
-import java.util.Random;
+import java.util.List;
 
 /**
  * Created by 思念 on 2015/12/26.
  */
 public class NumberGenerator {
     public String generate() {
-        String string = new String();
-        Random random = new Random();
-        int number;
-        for(int i = 0; i <4; i++) {
-            for (; ; ) {
-                number = random.nextInt(10);
-                if (string.indexOf(number+48) == -1) {
-                    string += String.valueOf(number);
-                    break;
-                }
-            }
-        }
-        return string;
+        List<String> list = Arrays.asList("0","1","2","3","4","5","6","7","8","9");
+        Collections.shuffle(list);
+        return String.join("",list.subList(0,4));
     }
 }

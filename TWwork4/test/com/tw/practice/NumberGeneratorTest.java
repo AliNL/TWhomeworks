@@ -13,28 +13,28 @@ import static junit.framework.Assert.assertTrue;
  */
 public class NumberGeneratorTest {
 
-    private NumberGenerator numberGenerator;
+    private String numberGenerator;
 
     @Before
     public void setUp() throws Exception {
-        numberGenerator = new NumberGenerator();
+        numberGenerator = new NumberGenerator().generate();
     }
 
     @Test
     public void should_have_four_charactor() {
-        String numbers = numberGenerator.generate();
+        String numbers = numberGenerator;
         assertEquals(numbers.length(), 4);
     }
 
     @Test
     public void should_be_numbers() {
-        String numbers = numberGenerator.generate();
+        String numbers = numberGenerator;
         assertTrue(numbers.matches("\\d+"));
     }
 
     @Test
     public void should_have_different_numbers() {
-        String numbers = numberGenerator.generate();
+        String numbers = numberGenerator;
         assertTrue(isUniqueEachOther(numbers));
     }
 
@@ -47,7 +47,7 @@ public class NumberGeneratorTest {
 
     @Test
     public void should_be_random() {
-        String number1 = new NumberGenerator().generate();
+        String number1 = numberGenerator;
         String number2 = new NumberGenerator().generate();
         assertFalse(number1.equals(number2));
     }
