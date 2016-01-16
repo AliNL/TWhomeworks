@@ -40,7 +40,7 @@ public class NumberGeneratorTest {
 
     private boolean isUniqueEachOther(String numbers) {
         for (int i = 0; i < numbers.length(); i++)
-            if (numbers.substring(i + 1, numbers.length()).indexOf(numbers.charAt(i)) > -1)
+            if (numbers.substring(i + 1, numbers.length()).contains(numbers.substring(i, i + 1)))
                 return false;
         return true;
     }
