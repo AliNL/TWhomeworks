@@ -7,6 +7,7 @@ public class BibliotecaApp {
     public static void main(String[] args) {
         ShowMessage show = new ShowMessage();
         show.welcome();
+        new AddBooks().addBooks();
         Scanner scanner = new Scanner(System.in);
         int option = scanner.nextInt();
         while (option != QUIT) {
@@ -19,7 +20,7 @@ public class BibliotecaApp {
     public static int controller(int option) {
         switch(option){
             case 1:
-                
+
         }
 
         return SUCCESSFUL;
