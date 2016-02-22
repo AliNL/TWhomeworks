@@ -17,5 +17,12 @@ public class ExampleTest {
 
     }
 
+    @Test
+    public void should_be_able_to_choose_valid_option() {
+
+    }
+
+
+
 
 }

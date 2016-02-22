@@ -7,10 +7,12 @@ public class ShowMessage {
 
     public void welcome() {
         System.out.println("Welcome to Biblioteca!");
+        this.mainMenu();
     }
 
     public void invalid() {
         System.out.println("Select a valid option!");
+        this.mainMenu();
     }
 
     public void successfulCheckout() {
@@ -19,6 +21,7 @@ public class ShowMessage {
 
     public void unSuccessfulCheckout() {
         System.out.println("That book is not available.");
+        this.bookList();
     }
 
     public void successfulReturn() {
@@ -27,9 +30,14 @@ public class ShowMessage {
 
     public void unSuccessfulReturn() {
         System.out.println("That is not a valid book to return.");
+        this.bookList();
     }
 
     public void mainMenu() {
-        System.out.println();
+        System.out.println("This is a menu");
+    }
+
+    public void bookList() {
+        System.out.println("books  books");
     }
 }
