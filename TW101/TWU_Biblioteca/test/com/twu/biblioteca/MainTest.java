@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -9,16 +10,22 @@ import static org.junit.Assert.*;
  */
 public class MainTest {
 
+    private Book book;
+
+    @Before
+    public void setUp() {
+        book = new Book("name", "author", "2016");
+    }
+
+
     @Test
     public void should_be_checked_out_only_once() {
-        Book book = new Book("name", "author", "2016");
         assertTrue(book.checkOut());
         assertFalse(book.checkOut());
     }
 
     @Test
     public void should_be_returned_only_once() {
-        Book book = new Book("name", "author", "2016");
         book.checkOut();
         assertTrue(book.returnBook());
         assertFalse(book.returnBook());
@@ -26,10 +33,19 @@ public class MainTest {
 
     @Test
     public void should_be_checked_out_again_after_return() {
-        Book book = new Book("name", "author", "2016");
         book.checkOut();
         assertTrue(book.returnBook());
         assertTrue(book.checkOut());
+    }
+
+    @Test
+    public void should_check_out_a_valid_book(){
+        assertTrue(Library.findBookByName(book.getName(),true));
+    }
+
+    @Test
+    public void should_not_check_out_a_invalid_book() {
+        assertFalse(Library.findBookByName("not exist",true));
     }
 
 }

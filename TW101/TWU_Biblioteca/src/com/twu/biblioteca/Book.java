@@ -1,13 +1,9 @@
 package com.twu.biblioteca;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Created by 思念 on 2016/2/22.
  */
 public class Book {
-    public static List<Book> books = new ArrayList<Book>();
     private String name, author, publishYear;
     private boolean notCheckedOut;
 
@@ -16,7 +12,7 @@ public class Book {
         this.author = author;
         this.publishYear = publishYear;
         this.notCheckedOut = true;
-        books.add(this);
+        Library.books.add(this);
     }
 
     public String getName() {
@@ -31,7 +27,9 @@ public class Book {
         return this.publishYear;
     }
 
-    public  boolean isNotCheckedOut(){return notCheckedOut;}
+    public boolean isNotCheckedOut() {
+        return notCheckedOut;
+    }
 
     public boolean checkOut() {
         if (this.notCheckedOut)

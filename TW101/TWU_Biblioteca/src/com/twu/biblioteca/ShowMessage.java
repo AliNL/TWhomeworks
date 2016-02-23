@@ -10,7 +10,7 @@ public class ShowMessage {
         mainMenu();
     }
 
-    public static void invalid() {
+    public static void invalidOption() {
         System.out.println("Select a valid option!");
         mainMenu();
     }
@@ -21,7 +21,6 @@ public class ShowMessage {
 
     public static void unSuccessfulCheckout() {
         System.out.println("That book is not available.");
-        bookList();
     }
 
     public static void successfulReturn() {
@@ -30,19 +29,21 @@ public class ShowMessage {
 
     public static void unSuccessfulReturn() {
         System.out.println("That is not a valid book to return.");
-        bookList();
     }
 
     public static void mainMenu() {
-        System.out.println("This is a menu");
+        System.out.println("Here are the valid options:");
+        System.out.println("input \"1\" to show the menu of valid options.");
+        System.out.println("input \"2\" to show the list of the books not checked out.");
+        System.out.println("input \"3\" to check out a book.");
+        System.out.println("input \"4\" to return a book.");
+        System.out.println("input \"0\" to quit the application.");
     }
 
     public static void bookList() {
-        Book bookTemp;
-        for(int i=0;i<Book.books.size();i++){
-            bookTemp=Book.books.get(i);
-            if(bookTemp.isNotCheckedOut())
-            System.out.println(bookTemp.getName()+'\t'+bookTemp.getAuthor()+'\t'+bookTemp.getPublishYear());
-        }
+        System.out.println("Here are the valid books:");
+        for (Book book : Library.books)
+            if (book.isNotCheckedOut())
+                System.out.println(book.getName() + "\t" + book.getAuthor() + "\t" + book.getPublishYear());
     }
 }
