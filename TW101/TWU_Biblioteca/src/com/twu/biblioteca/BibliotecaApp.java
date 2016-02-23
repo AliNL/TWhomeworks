@@ -5,26 +5,25 @@ import java.util.Scanner;
 public class BibliotecaApp {
 
     public static void main(String[] args) {
-        ShowMessage show = new ShowMessage();
-        show.welcome();
-        new AddBooks().addBooks();
+        ShowMessage.welcome();
+        AddBooks.addBooks();
         Scanner scanner = new Scanner(System.in);
-        int option = scanner.nextInt();
-        while (option != QUIT) {
+        String option = scanner.nextLine();
+        while (!option.contains( "quit")) {
             controller(option);
-            option = scanner.nextInt();
+            option = scanner.nextLine();
         }
     }
 
 
-    public static int controller(int option) {
-        switch(option){
-            case 1:
-
-        }
+    public static int controller(String option) {
 
         return SUCCESSFUL;
     }
-    public static final int QUIT = 0;
+
+    public static boolean findBook(String bookName){
+        return true;
+    }
+
     public static final int SUCCESSFUL = 0;
 }

@@ -5,39 +5,44 @@ package com.twu.biblioteca;
  */
 public class ShowMessage {
 
-    public void welcome() {
+    public static void welcome() {
         System.out.println("Welcome to Biblioteca!");
-        this.mainMenu();
+        mainMenu();
     }
 
-    public void invalid() {
+    public static void invalid() {
         System.out.println("Select a valid option!");
-        this.mainMenu();
+        mainMenu();
     }
 
-    public void successfulCheckout() {
+    public static void successfulCheckout() {
         System.out.println("Thank you! Enjoy the book");
     }
 
-    public void unSuccessfulCheckout() {
+    public static void unSuccessfulCheckout() {
         System.out.println("That book is not available.");
-        this.bookList();
+        bookList();
     }
 
-    public void successfulReturn() {
+    public static void successfulReturn() {
         System.out.println("Thank you for returning the book.");
     }
 
-    public void unSuccessfulReturn() {
+    public static void unSuccessfulReturn() {
         System.out.println("That is not a valid book to return.");
-        this.bookList();
+        bookList();
     }
 
-    public void mainMenu() {
+    public static void mainMenu() {
         System.out.println("This is a menu");
     }
 
-    public void bookList() {
-        System.out.println("books  books");
+    public static void bookList() {
+        Book bookTemp;
+        for(int i=0;i<Book.books.size();i++){
+            bookTemp=Book.books.get(i);
+            if(bookTemp.isNotCheckedOut())
+            System.out.println(bookTemp.getName()+'\t'+bookTemp.getAuthor()+'\t'+bookTemp.getPublishYear());
+        }
     }
 }
